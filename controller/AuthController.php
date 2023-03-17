@@ -1,6 +1,5 @@
 <?php
 session_start();
-// require('../common/midelware.php');
 require('./database/connect.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

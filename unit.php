@@ -8,34 +8,29 @@ require('./common/header.php');
     <!-- write code thisv -->
     <!-- btn add unit -->
     <div class="section__content section__content">
-
         <div class="header-wrap">
             <div class="header-button">
                 <div class="account-wrap">
                     <div class="btn-add-unit clearfix js-item-menu">
                         <button class="btn btn-primary">เพิ่มหน่วยปริมาณ</button>
                         <div class="account-dropdown js-dropdown">
-                            <div class="info clearfix">
-                                <div class="image d-flex align-items-center justify-content-center">
-                                    <div class="user-image d-flex justify-content-center align-items-center user-image-popup"><?= ucfirst(substr($_SESSION['userinfo']['fname'], 0, 1)) ?></div>
+                            <form action="./controller/UnitController.php" method="post">
+                                <div class="add-unit-blog">
+                                    <div class="text-title">
+                                        ชื่อหน่วยที่ต้องการเพิ่ม
+                                    </div>
+                                    <hr />
+                                    <input type="text" class="form-control" name="unitName" placeholder="ml:มิลลิกรัม" required />
+                                    <div class="row mt-3">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <button type="reset" class="btn btn-danger btn-add-unit-dropdown">ลบข้อมูล</button>
+                                        </div>
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-success btn-add-unit-dropdown">บันทึกข้อมูล</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="content">
-                                    <h5 class="name">
-                                        <a href="#"><?= $_SESSION['userinfo']['fname'] ?> <?= $_SESSION['userinfo']['lname'] ?></a>
-                                    </h5>
-                                    <span class="email"><?= $_SESSION['userinfo']['userID'] ?></span>
-                                </div>
-                            </div>
-                            <div class="account-dropdown__body">
-                                <div class="account-dropdown__item">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                </div>
-                            </div>
-                            <div class="account-dropdown__footer">
-                                <a href="./controller/AuthController.php">
-                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -48,9 +43,9 @@ require('./common/header.php');
     // loop unit element if unit > 0
     if (mysqli_num_rows($sql_query) > 0) {
     ?>
+        <!-- DATA TABLE-->
         <div class="row m-t-30">
             <div class="col-md-12">
-                <!-- DATA TABLE-->
                 <div class="table-responsive m-b-40">
                     <table class="table table-borderless table-data3">
                         <thead>
@@ -60,16 +55,24 @@ require('./common/header.php');
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2018-09-29 05:57</td>
-                                <td>Mobile</td>
-                            </tr>
+                            <?php
+                            $index = 1;
+                            while ($row = mysqli_fetch_array($sql_query)) {
+                            ?>
+                                <tr>
+                                    <td><?= $index ?></td>
+                                    <td><?= $row['unitName'] ?></td>
+                                </tr>
+                            <?php
+                                $index++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
-                <!-- END DATA TABLE-->
             </div>
         </div>
+        <!-- END DATA TABLE-->
     <?php
     } else {
     ?>
