@@ -1,7 +1,5 @@
 <?php
-require('./database/configuration.php');
-
-$db = new mysqli($host_name, $user_name, $password, $db_name);
+$db = new mysqli('localhost', 'root', '', 'kkucafe');
 if ($db->connect_errno) {
     echo "error";
     exit;

@@ -1,6 +1,6 @@
 <?php
-
-require('../common/midelware.php');
+session_start();
+// require('../common/midelware.php');
 require('./database/connect.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -10,19 +10,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_query = mysqli_query($db, $sql_command);
     if (mysqli_num_rows($sql_query) > 0) {
         unset($_SESSION['loginfail']);
-        $_SESSION['x'] = 'success';
-        // while ($item = mysqli_fetch_assoc($sql_query)) {
-        //     unset($item['password']);
-        //     $_SESSION['loginfail'] = 'huhiuhiuh';
-        //     // echo $_SESSION['userinfo'];
-
-        //     header('Location: ../index.php');
-        // }
-        header('Location: ../index.php');
+        while ($item = mysqli_fetch_assoc($sql_query)) {
+            unset($item['password']);
+            $_SESSION['loginfail'] = true;
+            foreach ($item as $key => $value) {
+                $_SESSION['userinfo'][$key] = $value;
+            }
+            header('Location: ../dashboard.php');
+        }
     } else {
         $_SESSION['loginfail'] = true;
         header('Location: ../login.php');
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
+    session_destroy();
     header('Location: ../index.php');
 }

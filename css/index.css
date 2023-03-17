@@ -9,3 +9,17 @@
 .header-button {
     justify-content: end !important;
 }
+
+.user-image {
+    /* display: flex; */
+    width: 2rem;
+    height: 2rem;
+    background-color: blueviolet;
+    border-radius: 100%;
+    color: white;
+}
+
+.user-image-popup {
+    width: 3rem;
+    height: 3rem;
+}

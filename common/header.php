@@ -143,23 +143,22 @@ $menu_array = array(
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <!-- <img src="images/icon/avatar-01.jpg" alt="John Doe" /> -->
+                                            <div class="user-image d-flex justify-content-center align-items-center"><?= ucfirst(substr($_SESSION['userinfo']['fname'], 0, 1)) ?></div>
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#"><?= $_SESSION['userinfo']['fname'] ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
+                                                <div class="image d-flex align-items-center justify-content-center">
+                                                    <div class="user-image d-flex justify-content-center align-items-center user-image-popup"><?= ucfirst(substr($_SESSION['userinfo']['fname'], 0, 1)) ?></div>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?= $_SESSION['userinfo']['fname'] ?> <?= $_SESSION['userinfo']['lname'] ?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?= $_SESSION['userinfo']['userID'] ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -169,7 +168,7 @@ $menu_array = array(
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="./controller/AuthController.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
