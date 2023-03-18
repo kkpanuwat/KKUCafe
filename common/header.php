@@ -3,7 +3,7 @@ $menu_array = array(
     array(
         "icon" => "fas fa-tachometer-alt",
         "title" => "เมนูเครื่องดื่ม",
-        "link" => "./index.php",
+        "link" => "./product.php",
         "number" => 0
     ),
     array(
@@ -29,6 +29,12 @@ $menu_array = array(
         "title" => "ผู้ใช้งาน",
         "link" => "./user.php",
         "number" => 4
+    ),
+    array(
+        "icon" => "far fa-check-square",
+        "title" => "test page",
+        "link" => "./test.php",
+        "number" => 5
     ),
 
 );
@@ -70,6 +76,8 @@ $menu_array = array(
     <link href="css/theme.css" rel="stylesheet" media="all">
     <link href="css/index.css" rel="stylesheet" media="all">
     <link href="css/unit.css" rel="stylesheet" media="all">
+    <link href="css/product.css" rel="stylesheet" media="all">
+
 
 
 </head>

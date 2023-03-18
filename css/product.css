@@ -1,0 +1,21 @@
+.product-item {
+    height: 30rem;
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    transition: 0.3s;
+
+}
+
+.product-item:hover {
+    box-shadow: inset 0px 0px 10rem black;
+    transition: 0.3s;
+}
+
+.product-name {
+    position: absolute;
+    bottom: 1rem;
+    color: white;
+    word-wrap: break-word;
+}
