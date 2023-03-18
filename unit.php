@@ -1,6 +1,6 @@
 <?php
 require('./common/midelware.php');
-$page_now = 2;
+$page_now = 3;
 require('./common/header.php');
 ?>
 <!-- MAIN CONTENT-->

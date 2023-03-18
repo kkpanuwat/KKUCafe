@@ -1,5 +1,5 @@
 <?php
-    $page_now = 3;
+    $page_now = 4;
     require('./common/header.php')
 ?>
 <!-- MAIN CONTENT-->

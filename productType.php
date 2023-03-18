@@ -1,6 +1,6 @@
 <?php
 require('./common/midelware.php');
-$page_now = 2;
+$page_now = 1;
 require('./common/header.php');
 ?>
 <!-- MAIN CONTENT-->
@@ -12,12 +12,12 @@ require('./common/header.php');
             <div class="header-button">
                 <div class="account-wrap">
                     <div class="btn-add-unit clearfix js-item-menu">
-                        <button class="btn btn-primary">เพิ่มประเภทวัตถุดิบ</button>
+                        <button class="btn btn-primary">เพิ่มประเภทเครื่องดื่ม</button>
                         <div class="account-dropdown js-dropdown">
                             <form action="./controller/ProductTypeController.php" method="post">
                                 <div class="add-unit-blog">
                                     <div class="text-title">
-                                        ชื่อวัตถุดิบที่ต้องการเพิ่ม
+                                        ชื่อประเภทที่ต้องการเพิ่ม
                                     </div>
                                     <hr />
                                     <input type="hidden" class="form-control" name="_method" value='POST' />
@@ -39,7 +39,7 @@ require('./common/header.php');
         </div>
     </div>
     <?php
-    $sql_command = "SELECT * from material";
+    $sql_command = "SELECT * from producttype";
     $sql_query = mysqli_query($db, $sql_command);
     // loop unit element if unit > 0
     if (mysqli_num_rows($sql_query) > 0) {
@@ -52,7 +52,7 @@ require('./common/header.php');
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>ประเภทวัตถุดิบ</th>
+                                <th>ประเภทเครื่องดื่ม</th>
                                 <th>การจัดการ</th>
                             </tr>
                         </thead>

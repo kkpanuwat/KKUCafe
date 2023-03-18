@@ -8,21 +8,27 @@ $menu_array = array(
     ),
     array(
         "icon" => "fas fa-table",
+        "title" => "ประเภทเครื่องดื่ม",
+        "link" => "./productType.php",
+        "number" => 1
+    ),
+    array(
+        "icon" => "fas fa-table",
         "title" => "วัตถุดิบ",
         "link" => "./material.php",
-        "number" => 1
+        "number" => 2
     ),
     array(
         "icon" => "fas fa-table",
         "title" => "หน่วย / ปริมาตร",
         "link" => "./unit.php",
-        "number" => 2
+        "number" => 3
     ),
     array(
         "icon" => "far fa-check-square",
         "title" => "ผู้ใช้งาน",
         "link" => "./user.php",
-        "number" => 3
+        "number" => 4
     ),
 
 );
